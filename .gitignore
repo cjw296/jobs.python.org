@@ -3,3 +3,4 @@
 /develop-eggs
 /*.egg-info/
 /parts/
+*.pyc
