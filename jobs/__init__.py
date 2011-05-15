@@ -1,4 +1,5 @@
 from mortar_rdb import registerSession, getSession
+from pyramid.config import Configurator
 
 import logging
 
