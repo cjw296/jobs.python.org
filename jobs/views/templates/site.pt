@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>
+Top Stuff
+</p>
+<h1 metal:define-slot="title"/>
+<metal:x define-slot="content"/>
+<p>
+Bottom Stuff
+</p>
+</body>
+</html>
