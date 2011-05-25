@@ -15,6 +15,7 @@ setup(
         'mortar_rdb >= 1.1.0',
         'MySQL-python',
         'pyramid',
+        'pyramid_tm',
         'transaction',
         'WebError',
         # test dependencies, here because of Pyramid's scan

@@ -13,7 +13,8 @@ def main(global_config, **settings):
 
     with open(settings['sqlalchemy.url_file']) as db_url:
         registerSession(db_url.read().strip())
-    
+
+    config.include('pyramid_tm')
     config.scan()
     
     return config.make_wsgi_app()
