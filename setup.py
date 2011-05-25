@@ -12,7 +12,7 @@ setup(
     install_requires = [
         'deform',
         'mailinglogger',
-        'mortar_rdb >= 1.1.0',
+        'mortar_rdb',
         'MySQL-python',
         'pyramid',
         'pyramid_tm',
