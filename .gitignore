@@ -5,3 +5,4 @@
 /parts/
 *.pyc
 /db_url.txt
+/session_secret.txt
