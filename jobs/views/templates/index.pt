@@ -1,8 +1,13 @@
 <metal:x use-macro="site_template">
 <h1 metal:fill-slot="title">Test</h1>
 
-<p tal:fill-slot="content">
-Content
+<div metal:fill-slot="content">
+<p>
+Content.
+<a href="/secure_index">a link</a>
 </p>
-
+<p>
+<a href="/login">log in</a>
+</p>
+</div>
 </metal:x>

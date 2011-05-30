@@ -1,0 +1,8 @@
+<metal:x use-macro="site_template">
+<h1 metal:fill-slot="title">Test</h1>
+
+<p metal:fill-slot="content">
+A secured page
+</p>
+
+</metal:x>
