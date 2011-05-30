@@ -1,0 +1,9 @@
+<metal:x use-macro="site_template">
+<h1 metal:fill-slot="title">Test</h1>
+
+<div metal:fill-slot="content">
+<pre tal:content="str(request)"/>
+</div>
+
+
+</metal:x>

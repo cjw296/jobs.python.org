@@ -18,6 +18,7 @@ setup(
         'pyramid_tm',
         'transaction',
         'WebError',
+        'velruse',
         # test dependencies, here because of Pyramid's scan
         'mock',
         'testfixtures',

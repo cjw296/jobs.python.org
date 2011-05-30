@@ -3,6 +3,8 @@ from pyramid.config import Configurator
 from pyramid.session import (
     UnencryptedCookieSessionFactoryConfig as SessionFactory
     )
+from pyramid.wsgi import wsgiapp2
+from velruse.app import make_app as make_velruse_app
 
 from .authentication import SessionAuthenticationPolicy
 from .authorization import AuthorizationPolicy
@@ -17,7 +19,8 @@ def main(global_config, **settings):
         db_url = source.read().strip()
     with open(settings['session.secret_file']) as source:
         secret = source.read().strip()
-    
+
+    # set up config
     config = Configurator(
         settings=settings,
         authentication_policy=SessionAuthenticationPolicy(),
@@ -25,9 +28,18 @@ def main(global_config, **settings):
         session_factory=SessionFactory(secret),
         )
 
+    # set up database
     registerSession(db_url)
 
+    # setup velruse
+    velruse = make_velruse_app(settings['velruse_config_file'])
+    velruse.__name__='velruse'
+    config.add_view(wsgiapp2(velruse), name='velruse')
+
+    # set up transactions
     config.include('pyramid_tm')
+
+    # scan for everything else
     config.scan()
     
     return config.make_wsgi_app()
