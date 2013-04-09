@@ -6,13 +6,14 @@
 
 <form action="/velruse/google/auth" method="post">
 <input type="hidden" name="popup_mode" value="popup" />
-<input type="hidden" name="end_point" value=" http://server2:6543/loggedin" />
+<input type="hidden" name="end_point"
+       tal:attributes="value end_point"/>
 <input type="submit" value="Login with Google" />
 </form>
 
 <form action="/velruse/yahoo/auth" method="post">
-<input type="hidden" name="end_point" value="http://http://pythonjobs.chrisw.info/loggedin" />
-<input type="hidden" name="oauth" value="true" />
+<input type="hidden" name="end_point"
+       tal:attributes="value end_point"/>
 <input type="submit" value="Login with Yahoo" />
 </form>
 

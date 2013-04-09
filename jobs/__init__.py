@@ -8,6 +8,7 @@ from velruse.app import make_app as make_velruse_app
 
 from .authentication import SessionAuthenticationPolicy
 from .authorization import AuthorizationPolicy
+from .utilities import DirectAccess
 
 def main(global_config, **settings):
     """
@@ -34,11 +35,17 @@ def main(global_config, **settings):
     # setup velruse
     velruse = make_velruse_app(settings['velruse_config_file'])
     velruse.__name__='velruse'
+    config.registry.registerUtility(DirectAccess(velruse))
     config.add_view(wsgiapp2(velruse), name='velruse')
 
     # set up transactions
     config.include('pyramid_tm')
 
+    # static views
+    config.add_static_view('static','jobs:static')
+    config.add_static_view('favicon.ico',
+                           'jobs:static/favicon.ico')
+    
     # scan for everything else
     config.scan()
     
